@@ -1,0 +1,23 @@
+{
+  "name": "hackerschool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LewisFreitas/hackerschool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LewisFreitas/hackerschool/issues"
+  },
+  "homepage": "https://github.com/LewisFreitas/hackerschool#readme",
+  "dependencies": {
+    "lite-server": "^2.3.0"
+  }
+}
