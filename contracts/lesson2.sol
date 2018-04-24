@@ -1,25 +1,8 @@
 pragma solidity ^0.4.21;
 
-contract Ownable {
-  address public owner;
+contract Hackerschool{
 
-  function Ownable() public{
-    owner = msg.sender;
-  }
-
-  modifier onlyOwner() {
-    require(msg.sender == owner);
-    _;
-  }
-
-  function transferOwnership(address newOwner) public onlyOwner {
-    if (newOwner != address(0)) {
-      owner = newOwner;
-    }
-  }
-}
-
-contract Hackerschool is Ownable{
+    event ChangedColor(uint8 oldColor, uint8 newColor);
 
     uint8 private backgroundColorId;
 
@@ -31,7 +14,9 @@ contract Hackerschool is Ownable{
         return backgroundColorId;
     }
 
-    function setBackgroundColor(uint8 _colorId) external onlyOwner{
-        backgroundColorId = _colorId;
+    function setBackgroundColor(uint8 _colorId) external{
+      uint8 oldColor = backgroundColorId;
+      backgroundColorId = _colorId;
+      emit ChangedColor(oldColor, _colorId);
     }
 }

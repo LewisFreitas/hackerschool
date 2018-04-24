@@ -95,9 +95,20 @@ App = {
     changedColor.watch(function(error, result){
         if (!error){
             console.log(result);
-            location.reload();
+            var newColor = web3.toDecimal(result.args.newColor);
+            var oldColor = web3.toDecimal(result.args.oldColor);
+            App.handleColorChanges(oldColor, newColor);
         }
     });
+  },
+
+  handleStatus : function(status){
+
+  },
+
+  handleColorChanges : function(oldColor, newColor){
+    $("#oldColor").css("background-color", colors[oldColor]);
+    $("#newColor").css("background-color", colors[newColor]);
   }
 }
 

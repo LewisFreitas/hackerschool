@@ -1,4 +1,4 @@
-Config_Lesson1Address = '0xDEBCB932BAa89E2175E794D12D9d0EFbD641b98e'
+Config_Lesson1Address = '0x2560c9b558bb475a35278dda8391d85ffb3d7e92'
 
 Config_Lesson2Address = ''
 
