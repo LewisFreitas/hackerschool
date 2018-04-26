@@ -13,22 +13,6 @@ App = {
   Lesson1Address : Config_Lesson1Address,
   Lesson1Instance : null,
 
-  // Lesson2ABI : Config_Lesson2ABI,
-  // Lesson2Address : Config_Lesson2Address,
-  // Lesson2Instance : null,
-  //
-  // Lesson3ABI : Config_Lesson3ABI,
-  // Lesson3Address : Config_Lesson3Address,
-  // Lesson3Instance : null,
-  //
-  // Lesson4ABI : Config_Lesson4ABI,
-  // Lesson4Address : Config_Lesson4Address,
-  // Lesson4Instance : null,
-  //
-  // Lesson5ABI : Config_Lesson5ABI,
-  // Lesson5Address : Config_Lesson5Address,
-  // Lesson5Instance : null,
-
   init : function(){
 
     return App.initWeb3();
@@ -102,13 +86,19 @@ App = {
     });
   },
 
-  handleStatus : function(status){
-
-  },
-
   handleColorChanges : function(oldColor, newColor){
     $("#oldColor").css("background-color", colors[oldColor]);
     $("#newColor").css("background-color", colors[newColor]);
+  },
+
+  loadColors : function(){
+    App.Lesson1Instance.getBackgroundColor(function(error, result){
+      if(!error){
+        var color = web3.toDecimal(result);
+        $("#oldColor").css("background-color", colors[color]);
+        $("#newColor").css("background-color", colors[color]);
+      } else console.error(error);
+    });
   }
 }
 
@@ -116,5 +106,6 @@ $(function(){
   $(window).on('load', function(){
     App.init();
     App.eventListenerContracts();
+    App.loadColors();
   });
 })
